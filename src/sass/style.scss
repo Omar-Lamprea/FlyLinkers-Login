@@ -1,0 +1,60 @@
+$theme-colors: (
+    "primary": blue,
+    "dark": #000000
+);
+
+@import "node_modules/bootstrap/scss/bootstrap";
+
+// body {
+//     padding-top:56px;
+// }
+.footer {
+    margin-top:3rem;
+}
+.navbar {
+    border-bottom:1px solid #eee;
+}
+
+header{
+    display: flex;
+    background-color: #E7F5F6;
+}
+
+.user-form input{
+    margin: .5rem;
+    border: none;
+    border-bottom: 1px solid rgb(218, 218, 218);
+}
+
+.user-form button{
+    border: .5px solid #1999AD;
+    margin: 1.2rem;
+    border-radius: .5rem;
+    background-color: #1999AD;
+    // border-color: #1999AD;
+    color: white;
+}
+
+.Google-button{
+    background-color: transparent !important;
+    color: black !important;
+}
+
+.homepage{
+    height: 75vh;
+}
+
+
+.button-panel button{
+    margin: .3rem;
+    background-color: transparent;
+    border: 1px solid #1999AD;
+    text-decoration: none;
+    color: black;
+    padding: .5rem .8rem;
+    border-radius: 1rem;
+}
+
+footer{
+    background-color: rgb(218, 218, 218);
+}
