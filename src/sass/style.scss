@@ -15,11 +15,14 @@ $theme-colors: (
     border-bottom:1px solid #eee;
 }
 
+
 header{
     display: flex;
     background-color: #E7F5F6;
 }
-
+header h5{
+    color: #8B8F8F;
+}
 .user-form input{
     margin: .5rem;
     border: none;
@@ -34,6 +37,12 @@ header{
     background-color: #1999AD;
     // border-color: #1999AD;
     color: white;
+}
+
+.user-form a{
+    color: #8B8F8F;
+    text-decoration: none;
+    margin-top: 1rem;
 }
 
 .Google-button{
