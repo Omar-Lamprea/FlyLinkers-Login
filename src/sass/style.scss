@@ -23,7 +23,8 @@ header{
 .user-form input{
     margin: .5rem;
     border: none;
-    border-bottom: 1px solid rgb(218, 218, 218);
+    border-bottom: 1px solid #F4F4F4;
+    min-width: 18rem;
 }
 
 .user-form button{
@@ -56,5 +57,5 @@ header{
 }
 
 footer{
-    background-color: rgb(218, 218, 218);
+    background-color: #F4F4F4;
 }
