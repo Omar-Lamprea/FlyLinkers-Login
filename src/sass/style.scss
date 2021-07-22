@@ -16,62 +16,160 @@ $theme-colors: (
 }
 
 
+// my custom Styles:
+header{
+    display: flex;
+    background-color: #E7F5F6;
+}
+header h5{
+    color: #8B8F8F;
+}
 
-//my custom Styles:
-@media screen and (max-width: 768px){
+.btn-login{
+    display: none;
+}
+
+.user-form input{
+    margin: .5rem;
+    border: none;
+    border-bottom: 1px solid #F4F4F4;
+    min-width: 18rem;
+}
+
+.user-form button{
+    border: .5px solid #1999AD;
+    margin: 1.2rem;
+    border-radius: .5rem;
+    background-color: #1999AD;
+    // border-color: #1999AD;
+    color: white;
+}
+
+.user-form a{
+    color: #8B8F8F;
+    text-decoration: none;
+    margin-top: 1rem;
+}
+
+.Google-button{
+    background-color: transparent !important;
+    color: black !important;
+}
+
+// .homepage{
+//     height: 75vh;
+// }
+.homepage p{
+    display: none;
+}
+
+.information{
+    color: #8B8F8F;
+}
+
+.button-panel button{
+    margin: .3rem;
+    background-color: transparent;
+    border: 1px solid #6cbcc9;
+    text-decoration: none;
+    color: #8B8F8F;
+    padding: .5rem .8rem;
+    border-radius: 1rem;
+}
+.btn-join button{
+    margin: 0;
+}
+
+footer{
+    background-color: #F4F4F4;
+}
+
+
+@media screen and (min-width: 768px){
+    //header:
     header{
-        display: flex;
-        background-color: #E7F5F6;
+        height: 8rem;
+        background-color: #fff;
     }
-    header h5{
-        color: #8B8F8F;
+
+    .header-desktop{
+        width: 100%;
+        flex-wrap: inherit;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .logo{
+        display: block !important;
+    }
+
+    .slogan{
+        display: none !important;
+    }
+
+    .btn-login{
+        display: block;
+        width: auto;
+        margin: 0 .5rem;
+    }
+
+    .btn-login button{
+        margin: 0 .5rem;
+    }
+
+    //homepage section
+    .homepage p{
+        display: block;
+        color: #239FA8;
+        font-size: 24px;
+        margin-bottom: -2rem;
+    }
+
+    .user-form{
+        display: block !important;
+    }
+    .user-form form{
+        margin-top: 3rem;
     }
     .user-form input{
-        margin: .5rem;
-        border: none;
-        border-bottom: 1px solid #F4F4F4;
-        min-width: 18rem;
+        background-color: #E2E2E2;
+        border-radius: .4rem;
+        height: 2rem;
+    }
+
+    .btn-join{
+        display: none;
+    }
+
+    .img-pilots img{
+        height: 20rem;
+    }
+
+    .information{
+        background-color: #e7f5f6;
+    }
+
+    .information button{
+        font-weight: 500;
+        border: 2px solid #6cbcc9;
+    }
+    .information img{
+        height: 20rem;
     }
     
-    .user-form button{
-        border: .5px solid #1999AD;
-        margin: 1.2rem;
-        border-radius: .5rem;
-        background-color: #1999AD;
-        // border-color: #1999AD;
-        color: white;
+    .container-buttons-img{
+        display: flex;
+        flex-direction: row-reverse;
     }
     
-    .user-form a{
-        color: #8B8F8F;
-        text-decoration: none;
-        margin-top: 1rem;
+    .button-panel{
+        margin-top: -3.5rem;
+        margin-left: -1rem;
     }
-    
-    .Google-button{
-        background-color: transparent !important;
-        color: black !important;
-    }
-    
-    .homepage{
-        height: 75vh;
-    }
-    
-    .information h2{
-        color: #8B8F8F;
-    }
-    
-    .button-panel button{
-        margin: .3rem;
-        background-color: transparent;
-        border: 1px solid #1999AD;
-        text-decoration: none;
-        color: black;
-        padding: .5rem .8rem;
-        border-radius: 1rem;
-    }
-    
-    footer{
-        background-color: #F4F4F4;
+
+
+    footer p{
+        color: #6cbcc9;
+        font-weight: 500;
     }
 }
