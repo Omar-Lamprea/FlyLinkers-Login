@@ -148,7 +148,9 @@ footer{
     .information{
         background-color: #e7f5f6;
     }
-
+    .information h2{
+        min-height: 5rem;
+    }
     .information button{
         font-weight: 500;
         border: 2px solid #6cbcc9;
