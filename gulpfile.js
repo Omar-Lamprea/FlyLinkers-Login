@@ -11,6 +11,9 @@ const jsImport = require('gulp-js-import');
 const sourcemaps = require('gulp-sourcemaps');
 const htmlPartial = require('gulp-html-partial');
 const clean = require('gulp-clean');
+const rollup = require('rollup');
+const nodeResolve = require('@rollup/plugin-node-resolve');
+const babel = require('@rollup/plugin-babel');
 const isProd = process.env.NODE_ENV === 'prod';
 
 const htmlFile = [
@@ -49,6 +52,27 @@ function js() {
         .pipe(gulp.dest('docs/js'));
 }
 
+function jsm(){
+    return rollup.rollup({
+        input: './src/jsm/main.js',
+        plugins: [
+            nodeResolve.nodeResolve(),
+            babel.babel()
+        ]
+    }).then(bundle => {
+        return bundle.write({
+          file: './docs/jsm/main.js',
+          format: 'umd',
+          name: 'library',
+          sourcemap: true
+        });
+      });
+}
+function locales(){
+    return gulp.src('src/locales/*.js')
+    .pipe(gulp.dest('docs/locales'));
+}
+
 function img() {
     return gulp.src('src/img/*')
         .pipe(gulpIf(isProd, imagemin()))
@@ -71,7 +95,9 @@ function browserSyncReload(done) {
 function watchFiles() {
     gulp.watch('src/**/*.html', gulp.series(html, browserSyncReload));
     gulp.watch('src/**/*.scss', gulp.series(css, browserSyncReload));
-    gulp.watch('src/**/*.js', gulp.series(js, browserSyncReload));
+    gulp.watch('src/js/*.js', gulp.series(js, browserSyncReload));
+    gulp.watch('src/jsm/*.js', gulp.series(jsm, browserSyncReload));
+    gulp.watch('src/locales/*.js', gulp.series(locales, browserSyncReload));
     gulp.watch('src/img/**/*.*', gulp.series(img));
 
     return;
@@ -86,5 +112,5 @@ exports.css = css;
 exports.html = html;
 exports.js = js;
 exports.del = del;
-exports.serve = gulp.parallel(html, css, js, img, watchFiles, serve);
-exports.default = gulp.series(del, html, css, js, img);
+exports.serve = gulp.parallel(html, css, js, jsm, locales, img, watchFiles, serve);
+exports.default = gulp.series(del, html, css, js, jsm, locales, img);

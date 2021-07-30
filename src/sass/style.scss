@@ -37,9 +37,11 @@ header h5{
 }
 
 .user-form button{
-    border: .5px solid #1999AD;
+    min-width: 40%;
     margin: 1.2rem;
-    border-radius: .5rem;
+    padding: .3rem;
+    border: .5px solid #1999AD;
+    border-radius: .8rem;
     background-color: #1999AD;
     // border-color: #1999AD;
     color: white;
@@ -54,6 +56,7 @@ header h5{
 .Google-button{
     background-color: transparent !important;
     color: black !important;
+    border: 2px solid #E2E2E2 !important;
 }
 
 // .homepage{
@@ -82,6 +85,7 @@ header h5{
 
 footer{
     background-color: #F4F4F4;
+    color: #8B8F8F;
 }
 
 
@@ -133,12 +137,18 @@ footer{
     }
     .user-form input{
         background-color: #E2E2E2;
+        padding-left: 1rem;
         border-radius: .4rem;
         height: 2rem;
     }
 
     .btn-join{
         display: none;
+    }
+
+    .btns-header{
+        display: flex !important;
+        justify-content: flex-end;
     }
 
     .img-pilots img{
