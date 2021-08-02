@@ -2540,8 +2540,8 @@
   async function initTranslate() {
     //console.log(navigator.language)
     let lang;
-    navigator.language === "es-US" ? lang = "es" : lang = "en";
-    console.log(lang);
+    navigator.language.includes('es') ? lang = "es" : lang = "en";
+    console.log(lang, lang.includes('es'));
     await i18next.init({
       lng: lang,
       debug: true,
