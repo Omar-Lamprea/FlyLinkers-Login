@@ -25,19 +25,39 @@ header h5{
     color: #8B8F8F;
 }
 
+.btn{
+    min-width: 10rem;
+    // max-width: 10rem;
+}
+.btn-language select{
+    border: 1px solid #6cbcc9;
+    border-radius: .2rem .2rem 0rem 0;
+    background-color: transparent;
+    position: absolute;
+    right: 1rem;
+    top: 2.2rem;
+}
+
 .btn-login{
     display: none;
+}
+
+.user-form form{
+    margin: 3rem auto 0;
+    display: flex;
+    flex-direction: column;
+    max-width: 25rem;
 }
 
 .user-form input{
     margin: .5rem;
     border: none;
     border-bottom: 1px solid #F4F4F4;
-    min-width: 18rem;
+    // min-width: 18rem;
 }
 
 .user-form button{
-    min-width: 40%;
+    // min-width: 40%;
     margin: 1.2rem;
     padding: .3rem;
     border: .5px solid #1999AD;
@@ -53,11 +73,22 @@ header h5{
     margin-top: 1rem;
 }
 
+.btn-login-form{
+    max-width: 15rem;
+    min-width: 90%;
+    margin: 1.2rem auto 0 !important;
+}
+
 .Google-button{
+    font-weight: 500;
     background-color: transparent !important;
-    color: black !important;
+    color: #8b8f8f !important;
     border: 2px solid #E2E2E2 !important;
 }
+
+// .img-pilots{
+//     height: 100%;
+// }
 
 // .homepage{
 //     height: 75vh;
@@ -70,30 +101,82 @@ header h5{
     color: #8B8F8F;
 }
 
-.button-panel button{
+.button-panel{
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+}
+.button-panel a{
     margin: .3rem;
-    background-color: transparent;
+    background-color: #fff;
     border: 1px solid #6cbcc9;
     text-decoration: none;
     color: #8B8F8F;
     padding: .5rem .8rem;
-    border-radius: 1rem;
+    border-radius: .5rem;
+    min-width: 100%;
 }
 .btn-join button{
     margin: 0;
 }
 
 footer{
-    background-color: #F4F4F4;
+    // background-color: #F4F4F4;
     color: #8B8F8F;
 }
+h3{
+    color: #1999AD;
+}
 
+
+//pages => about - galery hall
+.pages-section{
+    background-color: #E7F5F6;
+    // padding: 5rem;
+    padding-top: 0;
+
+}
+.pages-section p{
+    text-align: justify;
+}
+
+.about-section img{
+    margin-bottom: -1rem;
+}
+
+.card-content{
+    border: none;
+    align-items: center;
+    margin: 5rem 0;
+}
+.container-img-gallery{
+    border: 1px solid #1999AD;
+    border-radius: 50%;
+    padding: .5rem;
+    width: 75%;
+    margin-top: -50%;
+}
+.container-img-gallery img{
+    border-radius: 50%;
+}
+.card-body{
+    flex-direction: column;
+}
+.card-body p{
+    color: #1999AD;
+    margin: 0;
+    font-size: 500;
+}
+
+.second-row-cards{
+
+}
 
 @media screen and (min-width: 768px){
     //header:
     header{
         height: 8rem;
-        background-color: #fff;
+        // background-color: #fff;
     }
 
     .header-desktop{
@@ -109,6 +192,10 @@ footer{
 
     .slogan{
         display: none !important;
+    }
+
+    .btn-language select{
+        position: inherit;
     }
 
     .btn-login{
@@ -132,9 +219,7 @@ footer{
     .user-form{
         display: block !important;
     }
-    .user-form form{
-        margin-top: 3rem;
-    }
+    
     .user-form input{
         background-color: #E2E2E2;
         padding-left: 1rem;
@@ -151,8 +236,15 @@ footer{
         justify-content: flex-end;
     }
 
+    .img-container{
+        display: flex;
+        justify-content: center;
+        margin: auto;
+        height: 23rem;
+    }
+
     .img-pilots img{
-        height: 20rem;
+        height: 100%
     }
 
     .information{
@@ -164,19 +256,34 @@ footer{
     .information button{
         font-weight: 500;
         border: 2px solid #6cbcc9;
+        // min-width: 6rem;
     }
     .information img{
         height: 20rem;
+        margin-top: -13rem;
+        margin-left:-2rem;
     }
     
+
+    .container-text-us{
+        flex-direction: column;
+        align-content: flex-end;
+        justify-content: center;
+        text-align: justify;
+    }
+
     .container-buttons-img{
         display: flex;
         flex-direction: row-reverse;
     }
     
     .button-panel{
-        margin-top: -3.5rem;
-        margin-left: -1rem;
+        // margin: -9rem auto;
+        max-width: 30rem;
+    }
+
+    .button-panel a{
+        min-width: 10rem;
     }
 
 

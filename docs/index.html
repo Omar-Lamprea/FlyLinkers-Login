@@ -13,18 +13,23 @@
     
     <body>
         <header class="container-fluid justify-content-center header pt-2">
-            <div class="container">
+            <div class="container m-auto">
                 <div class="row header-desktop">
-                    <div class="logo col d-flex justify-content-center align-items-center">
-                        <img src="../img/Recurso 1-8.png" alt="logo img" height="80">
+                    <div class="logo col d-flex justify-content-center align-items-center"> <a href="../"><img src="../img/Recurso 1-8.png" alt="logo img" height="80"></a>
                     </div>
                     <div class="col-12 d-flex justify-content-center align-items-center slogan">
-                         <h5 data-translate="slogan">¡La red #1 de contactos de la aviación!</h5>
+                         <h5 data-translate="slogan" class="text-center">¡La red #1 de contactos de la aviación!</h5>
                     </div>
                     <div class="col btn-login user-form btns-header">
-                        <button type="submit" data-translate="btn-join">¡Únete Ahora!</button>
-                        <button type="submit" data-translate="btn-logIn"
+                        <button class="btn" type="submit" data-translate="btn-join">¡Únete Ahora!</button>
+                        <button class="btn" type="submit" data-translate="btn-logIn"
                         name="send">Iniciar sesión</button>
+                    </div>
+                    <div class="btn-language col-1">
+                        <select name="dioma" id="language">
+                            <option value=""></option>
+                            <option value=""></option>
+                        </select>
                     </div>
                 </div>
             </div>
@@ -35,30 +40,27 @@
                     <p data-translate="slogan">¡La red #1 de contactos de la aviación!</p>
                     <div class="user-form d-flex text-center justify-content-center">
                         <div class="row">
-                            <div class="col-12 col-md-5">
+                            <div class="col-12 col-md-4">
                                 <form action="" method="POST">
                                     <input data-translate="email" type="email" placeholder="Correo electrónico"
                                     required pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$">
-                                    <br>
-                                    <input data-translate="password" type="password" placeholder="Contraseña">
-                                    <br>
-                                    <br> <a href="#" data-translate="forgot-password">¿Has olvidado tu contraseña?</a>
-                                    <br>
-                                    <button type="submit" name="send" data-translate="btn-logIn">Iniciar sesión</button>
-                                    <br>
-                                    <button class="Google-button" type="submit">
-                                        <img src="./img/Google-g.png" alt="G" width="20"> <span data-translate="btn-logInG">Iniciar sesión con Google</span>
-                                    </button>
+                                    <input data-translate="password" type="password" placeholder="Contraseña"> <a href="#" data-translate="forgot-password">¿Has olvidado tu contraseña?</a>
+                                    <button
+                                    type="submit" name="send" data-translate="btn-logIn" class="btn btn-login-form">Iniciar sesión</button>
+                                        <button class="btn Google-button btn-login-form"
+                                        type="submit">
+                                            <img src="./img/Google-g.png" alt="G" width="20"> <span data-translate="btn-logInG">Iniciar sesión con Google</span>
+                                        </button>
                                 </form>
                             </div>
-                            <div class="col-12 col-md-7">
+                            <div class="col-12 col-md-8 mt-3 img-container">
                                 <div class="img-pilots container-image mt-3 mb-4">
-                                    <img src="./img/Recurso 2-8.png" alt="pilots img" height="200">
+                                    <img src="./img/Recurso 1-8-1.png" alt="pilots img" height="230">
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="btn-join">
-                                    <button type="submit" data-translate="btn-join">¡Únete Ahora!</button>
+                                    <button class="btn btn-login-form" type="submit" data-translate="btn-join">¡Únete Ahora!</button>
                                 </div>
                             </div>
                         </div>
@@ -69,51 +71,50 @@
         <section class="information pt-4 mt-4">
             <div class="container-fluid px-4">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-12 col-md-8">
-                             <h2 data-translate="news-title">Entérate de las últimas noticias, eventos, seminarios e información relevante del sector</h2>
+                    <div class="row container-text-us">
+                        <div class="col-12 col-md-7">
+                             <h2 data-translate="news-title">Entérate de las últimas noticias</h2>
                         </div>
-                        <div class="col-12 col-md-4">
-                            <p data-translate="btn-about">Sobre nosotros</p>
+                        <div class="col-12 col-md-7">
+                             <h3 data-translate="btn-about" class="my-2 text-center">Sobre nosotros</h3>
                         </div>
                     </div>
                     <div class="row container-buttons-img">
-                        <div class="col-12 col-md-4">
-                            <div class="button-panel p-1">
-                                <button data-translate="btn-us">Nosotros</button>
-                                <button data-translate="btn-news">Noticias</button>
-                                <br>
-                                <button data-translate="btn-founders">Socios Fundadores</button>
-                                <br>
-                                <button data-translate="btn-gallery">Galeria de la fama</button>
+                        <div class="col-12 col-md-7 d-flex justify-content-center align-items-center">
+                            <div class="button-panel p-1 d-flex"> <a class="btn" href="about.html" data-translate="btn-us">Mision-Vision</a>
+                                <a
+                                class="btn" href="#" data-translate="btn-news">Noticias</a>
+                                    <!-- <a class="btn" href="#" data-translate="btn-founders">Socios Fundadores</a><br> --> <a class="btn" href="gallery.html" data-translate="btn-gallery">Galeria de la fama</a>
                             </div>
                         </div>
-                        <div class="col-12 col-md-8">
+                        <div class="col-12 col-md-5">
                             <div class="container-image text-center mt-4">
-                                <img src="./img/Recurso 3-8.png" alt="pilots img" height="200">
+                                <img src="./img/Recurso 3-8.png" alt="pilots img" height="250">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <footer class="container-fluid text-center">
+        <footer class="container-fluid text-center mt-4">
             <div class="row">
                 <div class="col">
-                    <div class="container-image mt-3">
-                        <img src="../img/flylinkers-logo orig.png" alt="pilots img" height="50">
+                    <div class="container-image">
+                        <!-- <img src="../img/flylinkers-logo orig.png" alt="pilots img" height="50"> -->
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <p class="mb-0" data-translate="contact">Contáctenos</p>
+                     <h3 class="mb-0" data-translate="contact">Contáctenos</h3>
                 </div>
             </div>
             <div class="row">
                 <div class="col"> <small>
 
-                8601 NW 27th Street, Suite 051-514119 Miami, FL 33122<br>
+                8601 NW 27th Street, Suite <br> 
+
+                051-514119 Miami, FL 33122<br>
 
                 info@flylinkers.com<br>
 
@@ -130,7 +131,7 @@
             </div>
             </div>
         </footer>
-        <!-- <script type="text/javascript" src="./js/all.js"></script> -->
+        <script type="text/javascript" src="./js/all.js"></script>
         <script type="text/javascript" src="./jsm/main.js"></script>
     </body>
 
