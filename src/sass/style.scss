@@ -148,7 +148,20 @@ h3{
     border: none;
     align-items: center;
     margin: 5rem 0;
+    width: 9rem;
 }
+.card-body{
+    flex-direction: column;
+}
+.card-body p{
+    color: #1999AD;
+    margin: 0;
+    font-size: 500;
+}
+.card-text{
+    display: none;
+}
+
 .container-img-gallery{
     border: 1px solid #1999AD;
     border-radius: 50%;
@@ -159,18 +172,10 @@ h3{
 .container-img-gallery img{
     border-radius: 50%;
 }
-.card-body{
-    flex-direction: column;
-}
-.card-body p{
-    color: #1999AD;
-    margin: 0;
-    font-size: 500;
-}
 
-.second-row-cards{
+// .second-row-cards{
 
-}
+// }
 
 @media screen and (min-width: 768px){
     //header:
@@ -290,5 +295,18 @@ h3{
     footer p{
         color: #6cbcc9;
         font-weight: 500;
+    }
+
+
+    //section pages
+    .card-content-main{
+        width: 18rem !important;
+    }
+
+    .card-content{
+        width: 13rem;
+    }
+    .card-text{
+        display: block;
     }
 }
