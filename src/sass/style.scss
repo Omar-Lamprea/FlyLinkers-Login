@@ -311,6 +311,12 @@ h3{
     .card-text{
         display: block;
     }
+    .card-visible{
+        display: block !important;
+    }
+    .card-hidden{
+        display: none !important;
+    }
 
     .container-img-gallery-main img{
         height: 13rem !important;
