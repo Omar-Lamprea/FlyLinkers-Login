@@ -39,6 +39,7 @@
     "vinyl-source-stream": "^2.0.0"
   },
   "dependencies": {
+    "firebase": "^9.6.1",
     "i18next": "^20.3.5",
     "popper.js": "^1.16.1",
     "rollup": "^2.55.1"
