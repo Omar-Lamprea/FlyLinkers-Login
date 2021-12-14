@@ -21,7 +21,8 @@
                          <h5 data-translate="slogan" class="text-center">¡La red #1 de contactos de la aviación!</h5>
                     </div>
                     <div class="col btn-login user-form btns-header">
-                        <button class="btn" type="submit" data-translate="btn-join">¡Únete Ahora!</button>
+                        <button class="btn" type="button" data-translate="btn-join" data-bs-toggle="modal"
+                        data-bs-target="#createUser">¡Únete Ahora!</button>
                         <button class="btn" type="submit" data-translate="btn-logIn"
                         name="send">Iniciar sesión</button>
                     </div>
@@ -30,6 +31,30 @@
                             <option value=""></option>
                             <option value=""></option>
                         </select>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="createUser" tabindex="-1" aria-labelledby="createUserLabel"
+            aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                             <h5 class="modal-title" id="createUserLabel">Sign Up</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="" class="sign-up d-flex flex-column" id="new-user">
+                                <label for="newEmail">email</label>
+                                <input type="email" name="newEmail" id="newEmail">
+                                <label for="newPassword">password</label>
+                                <input type="password" name="newPassword" id="newPassword">
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="create-user">Save changes</button>
+                        </div>
                     </div>
                 </div>
             </div>

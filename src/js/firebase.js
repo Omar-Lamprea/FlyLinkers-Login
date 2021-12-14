@@ -38,6 +38,36 @@ const googeAuth = ()=>{
   });
 }
 
+//Auth with email and pass
+const emailAuth = (email, password) =>{
+  firebase.auth().signInWithEmailAndPassword(email, password)
+  .then((userCredential) => {
+    // Signed in
+    const user = userCredential.user;
+    console.log(user.email);
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(error);
+  });
+}
+
+//Create User
+const createUser = (email, password)=>{
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+  .then((userCredential) => {
+    // Signed in
+    const user = userCredential.user;
+    console.log(userCredential);
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(error);
+  });
+}
+
 const logOut = ()=>{
   firebase.auth().signOut()
   .then(() => {

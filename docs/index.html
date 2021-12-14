@@ -21,7 +21,8 @@
                          <h5 data-translate="slogan" class="text-center">¡La red #1 de contactos de la aviación!</h5>
                     </div>
                     <div class="col btn-login user-form btns-header">
-                        <button class="btn" type="submit" data-translate="btn-join">¡Únete Ahora!</button>
+                        <button class="btn" type="button" data-translate="btn-join" data-bs-toggle="modal"
+                        data-bs-target="#createUser">¡Únete Ahora!</button>
                         <button class="btn" type="submit" data-translate="btn-logIn"
                         name="send">Iniciar sesión</button>
                     </div>
@@ -30,6 +31,30 @@
                             <option value=""></option>
                             <option value=""></option>
                         </select>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="createUser" tabindex="-1" aria-labelledby="createUserLabel"
+            aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                             <h5 class="modal-title" id="createUserLabel">Sign Up</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="" class="sign-up d-flex flex-column" id="new-user">
+                                <label for="newEmail">email</label>
+                                <input type="email" name="newEmail" id="newEmail">
+                                <label for="newPassword">password</label>
+                                <input type="password" name="newPassword" id="newPassword">
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="create-user">Save changes</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -42,16 +67,17 @@
                         <div class="row">
                             <div class="col-12 col-md-4">
                                 <form action="" method="POST">
-                                    <input data-translate="email" type="email" placeholder="Correo electrónico"
+                                    <input data-translate="email" type="email" id="input-email" placeholder="Correo electrónico"
                                     required pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$">
-                                    <input data-translate="password" type="password" placeholder="Contraseña"> <a href="#" data-translate="forgot-password">¿Has olvidado tu contraseña?</a>
+                                    <input data-translate="password" type="password" id="input-pass" placeholder="Contraseña"> <a href="#" data-translate="forgot-password">¿Has olvidado tu contraseña?</a>
                                     <button
                                     type="submit" name="send" data-translate="btn-logIn" class="btn btn-login-form"
-                                    id="btn-logout">Iniciar sesión</button>
+                                    id="btn-login">Iniciar sesión</button>
                                         <button class="btn Google-button btn-login-form"
                                         type="submit" id="btn-google">
                                             <img src="./img/Google-g.png" alt="G" width="20"> <span data-translate="btn-logInG">Iniciar sesión con Google</span>
                                         </button>
+                                        <button id="btn-logout">Cerrar Sessión</button>
                                 </form>
                             </div>
                             <div class="col-12 col-md-8 mt-3 img-container">
