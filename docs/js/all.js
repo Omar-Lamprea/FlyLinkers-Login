@@ -20,9 +20,8 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
 
-
 // Auth with Googe
-const googeAuth = ()=>{
+const googleAuth = ()=>{
   const provider = new firebase.auth.GoogleAuthProvider();
   
   firebase.auth().signInWithPopup(provider)
@@ -62,6 +61,7 @@ const emailAuth = (email, password) =>{
   });
 }
 
+
 //Create User
 const createUser = (email, password)=>{
   firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -69,6 +69,10 @@ const createUser = (email, password)=>{
     // Signed in
     const user = userCredential.user;
     console.log(userCredential);
+    console.log('usuario creado')
+    setTimeout(() => {
+      $('#createUser').modal('hide');
+    }, 1000);
   })
   .catch((error) => {
     const errorCode = error.code;
@@ -77,6 +81,7 @@ const createUser = (email, password)=>{
   });
 }
 
+//logOuth
 const logOut = ()=>{
   firebase.auth().signOut()
   .then(() => {
@@ -85,25 +90,34 @@ const logOut = ()=>{
     console.log(error);
   });
 }
-console.log(app);
-
 const btnGoogle = document.getElementById('btn-google')
 const btnLogin = document.getElementById('btn-login')
 const btnlogOut = document.getElementById('btn-logout')
 const email = document.getElementById('input-email')
 const pass = document.getElementById('input-pass')
 
+const formUser = document.getElementById('new-user')
 const newEmail = document.getElementById('new-user').newEmail
 const newPass = document.getElementById('new-user').newPassword
+const confirmPass = document.getElementById('new-user').confirmPassword
 const newUser = document.getElementById('create-user')
 
-newUser.addEventListener('click', ()=>{
-  createUser(newEmail.value, newPass.value)
+newUser.addEventListener('click', (e)=>{
+  if(newEmail.value && newPass.value !== ''){
+    e.preventDefault()
+    if (newPass.value === confirmPass.value){
+      createUser(newEmail.value, newPass.value)
+      newEmail.value = ''
+      newPass.value = ''
+    }else{
+      alert('la contraseña no es igual')
+    }
+  }
 })
 
 btnGoogle.addEventListener('click', e =>{
   e.preventDefault()
-  googeAuth()
+  googleAuth()
 })
 
 btnLogin.addEventListener('click', e =>{

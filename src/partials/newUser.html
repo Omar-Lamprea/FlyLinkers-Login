@@ -1,0 +1,28 @@
+<!-- Modal -->
+<div class="modal fade" id="createUser" tabindex="-1" aria-labelledby="createUserLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="createUserLabel">Sign Up</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="" class="sign-up d-flex flex-column" id="new-user">
+        <div class="modal-body">
+          <div class="namesInput">
+            <input type="firstName" name="newfirstName" id="newfirstName" placeholder="First Name" required>
+            <input type="lastName" name="newlastName" id="newlastName" placeholder="Last Name" required>
+          </div>
+          <input type="email" name="newEmail" id="newEmail" placeholder="Email" required>
+          <div class="passwordInput">
+            <input type="password" name="newPassword" id="newPassword" placeholder="Password" required>
+            <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirmation" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary close" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn save-user" id="create-user">Save changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

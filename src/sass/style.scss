@@ -5,6 +5,11 @@ $theme-colors: (
 
 @import "node_modules/bootstrap/scss/bootstrap";
 
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
 // body {
 //     padding-top:56px;
 // }
@@ -73,8 +78,37 @@ header h5{
     margin-top: 1rem;
 }
 
-.sign-up{
-    
+.sign-up input{
+    margin: .5rem 0;
+    border: none;
+    border-radius: .4rem;
+    background-color: #E2E2E2;
+    padding: .5rem;
+}
+.sign-up div input{
+    width: 49%;
+}
+.sign-up div input[type="email"]{
+    width: 100%;
+}
+.modal-footer .close{
+    background-color: #a3a3a3;
+    color: #fff;
+}
+.modal-footer .close:hover{
+    background-color: #8b8f8f;
+}
+.modal-footer .save-user{
+    background-color: #1999AD;
+    color: #fff;
+}
+.modal-footer .save-user:hover{
+    background-color: #138091;
+}
+
+.namesInput, .passwordInput{
+    display: flex;
+    justify-content: space-between;
 }
 
 .btn-login-form{

@@ -11,9 +11,8 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
 
-
 // Auth with Googe
-const googeAuth = ()=>{
+const googleAuth = ()=>{
   const provider = new firebase.auth.GoogleAuthProvider();
   
   firebase.auth().signInWithPopup(provider)
@@ -53,6 +52,7 @@ const emailAuth = (email, password) =>{
   });
 }
 
+
 //Create User
 const createUser = (email, password)=>{
   firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -60,6 +60,10 @@ const createUser = (email, password)=>{
     // Signed in
     const user = userCredential.user;
     console.log(userCredential);
+    console.log('usuario creado')
+    setTimeout(() => {
+      $('#createUser').modal('hide');
+    }, 1000);
   })
   .catch((error) => {
     const errorCode = error.code;
@@ -68,6 +72,7 @@ const createUser = (email, password)=>{
   });
 }
 
+//logOuth
 const logOut = ()=>{
   firebase.auth().signOut()
   .then(() => {
