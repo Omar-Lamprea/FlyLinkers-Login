@@ -1,11 +1,10 @@
 const firebaseConfig = {
-  apiKey: "AIzaSyB5emrIPT4wWP4-7N5Et_w8jjWrnAEXwoA",
-  authDomain: "flylinkerslogin.firebaseapp.com",
-  projectId: "flylinkerslogin",
-  storageBucket: "flylinkerslogin.appspot.com",
-  messagingSenderId: "744248576600",
-  appId: "1:744248576600:web:da6489a79bfac82da7d82d",
-  measurementId: "G-J38E59TYNW"
+  apiKey: "AIzaSyB8KpNHJILsB2erTcBgMuhTHWGJd_rSttk",
+  authDomain: "flylinkers-login.firebaseapp.com",
+  projectId: "flylinkers-login",
+  storageBucket: "flylinkers-login.appspot.com",
+  messagingSenderId: "628867348595",
+  appId: "1:628867348595:web:95815a4959b5b5d0fe5206"
 };
 
 // Initialize Firebase
@@ -22,18 +21,18 @@ const googleAuth = ()=>{
     // This gives you a Google Access Token. You can use it to access the Google API.
     const token = credential.accessToken;
     // The signed-in user info.
+    // console.log(token);
     const user = result.user;
-    // ...
-    console.log(user);
+    const userToken = user._delegate.accessToken
+    authToken(userToken)
   }).catch((error) => {
-    // Handle Errors here.
     const errorCode = error.code;
     const errorMessage = error.message;
-    // The email of the user's account used.
     const email = error.email;
-    // The firebase.auth.AuthCredential type that was used.
     const credential = error.credential;
-    // ...
+
+    const showError = document.getElementById('auth-error')
+    showError.innerHTML = errorMessage
   });
 }
 
@@ -43,15 +42,17 @@ const emailAuth = (email, password) =>{
   .then((userCredential) => {
     // Signed in
     const user = userCredential.user;
-    console.log(user.email);
+    const userToken = user._delegate.accessToken
+    authToken(userToken)
   })
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
-    console.log(error);
+
+    const showError = document.getElementById('auth-error')
+    showError.innerHTML = errorMessage
   });
 }
-
 
 //Create User
 const createUser = (email, password)=>{
@@ -76,8 +77,37 @@ const createUser = (email, password)=>{
 const logOut = ()=>{
   firebase.auth().signOut()
   .then(() => {
+    localStorage.removeItem('user')
     console.log('session ended');
   }).catch((error) => {
     console.log(error);
   });
+}
+
+//save token
+const authToken = (userToken)=>{
+  const storageUser = localStorage.setItem('user', userToken)
+
+  // if (localStorage.getItem('user')){
+    const authDb = async()=>{
+      const response = await fetch('http://18.118.50.78:8000/user/login/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body:JSON.stringify({
+          email: 'omar@gmail.com',
+          password_hash: 'omar123'
+        })
+      })
+      const content = await response.json();
+      console.log(content);
+    } 
+    authDb()
+
+
+    // console.log(localStorage.getItem('user'));
+    const redirect  = 'http://localhost:5000'
+    // window.location.href = redirect
+  // }
 }
