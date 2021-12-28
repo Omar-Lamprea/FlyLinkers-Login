@@ -9,7 +9,7 @@ const createNewUser = async (data)=>{
       },
       body:JSON.stringify({
         "first_name" : firstName,
-        "middle_name" : "David",
+        // "middle_name" : "David",
         "last_name" : lastName,
         "mobile" : newTel,
         "email" : newEmail,

@@ -63,10 +63,12 @@ btnlogOut.addEventListener('click', e => {
 //save token
 const authToken = (userToken) => {
   const storageUser = localStorage.setItem('user', userToken)
-  console.log(localStorage.getItem('user'));
-  const redirect  = 'http://localhost:5000'
+  // console.log(localStorage.getItem('user'));
+
+  const redirect  = `http://localhost:57952/?user=${localStorage.getItem('user')}`
   
-  // if (localStorage.getItem('user')){
-    // window.location.href = redirect
-  // }
+  if (localStorage.getItem('user')){
+    window.location.href = redirect
+    localStorage.removeItem('user')
+  }
 }

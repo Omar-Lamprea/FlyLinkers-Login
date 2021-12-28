@@ -18,7 +18,7 @@ const createNewUser = async (data)=>{
       },
       body:JSON.stringify({
         "first_name" : firstName,
-        "middle_name" : "David",
+        // "middle_name" : "David",
         "last_name" : lastName,
         "mobile" : newTel,
         "email" : newEmail,
@@ -119,7 +119,7 @@ const logOut = ()=>{
   firebase.auth().signOut()
   .then(() => {
     localStorage.removeItem('user')
-    console.log('session ended');
+    console.log('session finished');
   }).catch((error) => {
     console.log(error);
   });
@@ -189,12 +189,14 @@ btnlogOut.addEventListener('click', e => {
 //save token
 const authToken = (userToken) => {
   const storageUser = localStorage.setItem('user', userToken)
-  console.log(localStorage.getItem('user'));
-  const redirect  = 'http://localhost:5000'
+  // console.log(localStorage.getItem('user'));
+
+  const redirect  = `http://localhost:57952/?user=${localStorage.getItem('user')}`
   
-  // if (localStorage.getItem('user')){
-    // window.location.href = redirect
-  // }
+  if (localStorage.getItem('user')){
+    window.location.href = redirect
+    localStorage.removeItem('user')
+  }
 }
 const userLogIn = async (email, password)=>{
   try {

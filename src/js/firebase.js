@@ -80,7 +80,7 @@ const logOut = ()=>{
   firebase.auth().signOut()
   .then(() => {
     localStorage.removeItem('user')
-    console.log('session ended');
+    console.log('session finished');
   }).catch((error) => {
     console.log(error);
   });
