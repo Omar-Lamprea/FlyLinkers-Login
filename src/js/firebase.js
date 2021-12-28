@@ -25,7 +25,9 @@ const googleAuth = ()=>{
     const user = result.user;
     const userToken = user._delegate.accessToken
     authToken(userToken)
-  }).catch((error) => {
+
+  })
+  .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
     const email = error.email;
@@ -82,32 +84,4 @@ const logOut = ()=>{
   }).catch((error) => {
     console.log(error);
   });
-}
-
-//save token
-const authToken = (userToken)=>{
-  const storageUser = localStorage.setItem('user', userToken)
-
-  // if (localStorage.getItem('user')){
-    const authDb = async()=>{
-      const response = await fetch('http://18.118.50.78:8000/user/login/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body:JSON.stringify({
-          email: 'omar@gmail.com',
-          password_hash: 'omar123'
-        })
-      })
-      const content = await response.json();
-      console.log(content);
-    } 
-    authDb()
-
-
-    // console.log(localStorage.getItem('user'));
-    const redirect  = 'http://localhost:5000'
-    // window.location.href = redirect
-  // }
 }
