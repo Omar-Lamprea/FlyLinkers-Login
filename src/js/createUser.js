@@ -1,5 +1,16 @@
 const createNewUser = async (data)=>{
-  const [firstName, lastName, newTel, newTitle, newEmail, newPass, confirmPass] = data
+  const [firstName, middleName, lastName, newTel, newTitle, newEmail, newPass, photoB64] = data
+
+  const getImg = await fetch ('http://18.118.50.78:8000/resources/img/', {
+    method : 'POST',
+    headers : {
+      'Content-Type': 'application/json'
+    },
+    body:JSON.stringify({
+      "img": photoB64
+    })
+  })
+  const image = await getImg.json()
 
   try {
     const response = await fetch('http://18.118.50.78:8000/user/create/',{
@@ -9,12 +20,13 @@ const createNewUser = async (data)=>{
       },
       body:JSON.stringify({
         "first_name" : firstName,
-        // "middle_name" : "David",
+        "middle_name" : middleName,
         "last_name" : lastName,
         "mobile" : newTel,
         "email" : newEmail,
         "title" : newTitle,
-        "password_hash" : newPass
+        "password_hash" : newPass,
+        "photo" : image.img
       })
     })
     const content = await response.json();

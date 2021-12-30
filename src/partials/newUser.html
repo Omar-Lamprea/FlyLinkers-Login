@@ -9,17 +9,24 @@
       <form action="" class="sign-up d-flex flex-column" id="new-user">
         <div class="modal-body">
           <div class="namesInput">
-            <input type="firstName" name="newfirstName" id="newfirstName" placeholder="First Name" required>
-            <input type="lastName" name="newlastName" id="newlastName" placeholder="Last Name" required>
+            <input class="mx-1" type="firstName" name="newfirstName" id="newfirstName" placeholder="First Name" required>
+            <input class="mx-1" type="middleName" name="newmiddleName" id="newmiddleName" placeholder="middle Name">
+            <input class="mx-1" type="lastName" name="newlastName" id="newlastName" placeholder="Last Name" required>
           </div>
           <div class="contactIput">
             <input type="tel" name="newTel" id="newTel" placeholder="Phone" required>
-            <input type="text" name="newTitle" id="newTitle" placeholder="Title" required>
+            <input type="text" name="newTitle" id="newTitle" placeholder="Title">
           </div>
           <input type="email" name="newEmail" id="newEmail" placeholder="Email" required>
           <div class="passwordInput">
             <input type="password" name="newPassword" id="newPassword" placeholder="Password" required>
             <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirmation" required>
+          </div>
+          <hr>
+          <div class="profile-image">
+            <label for="newPhoto">profile picture</label>
+            <input type="file" accept=".png, .jpg, .jpeg" name="newPhoto" id="newPhoto" onchange="showImg()">
+            <img src="" alt="photo" id="profile-image" style="width: 50%; display: none;" class="m-auto">
           </div>
         </div>
         <div class="modal-footer">

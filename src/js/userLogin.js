@@ -11,8 +11,13 @@ const userLogIn = async (email, password)=>{
       })
     })
     const content = await response.json();
-    console.log(content.Detail);
-    authToken(email)
+    // console.error(content.Detail);
+    if(content.Detail === 'OK'){
+      authToken(email)
+    }else{
+      const showError = document.getElementById('auth-error')
+      showError.innerHTML = content.Detail
+    }
 
   } catch (error) {
     console.error(error)
