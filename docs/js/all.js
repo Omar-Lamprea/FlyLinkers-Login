@@ -172,26 +172,32 @@ const showImg = ()=> {
 
 //create user
 newUser.addEventListener('click', (e)=>{
+
+  
   if(newEmail.value !== '' && newPass.value !== ''){
     e.preventDefault()
-    if (newPass.value === confirmPass.value){
-      const data = [
-        firstName.value,
-        middleName.value,
-        lastName.value,
-        newTel.value,
-        newTitle.value,
-        newEmail.value,
-        newPass.value,
-        photoB64
-      ]
-      
-      //with Db:
-      createNewUser(data)
-      // with firebase:
-      // createUser(newEmail.value, newPass.value)
+    if (!photoB64) {
+      alert('upload your photo');
     }else{
-      alert('verify your password')
+      if (newPass.value === confirmPass.value){
+        const data = [
+          firstName.value,
+          middleName.value,
+          lastName.value,
+          newTel.value,
+          newTitle.value,
+          newEmail.value,
+          newPass.value,
+          photoB64
+        ]
+        
+        //with Db:
+        createNewUser(data)
+        // with firebase:
+        // createUser(newEmail.value, newPass.value)
+      }else{
+        alert('verify your password')
+      }
     }
   }
 })
