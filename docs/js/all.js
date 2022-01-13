@@ -75,6 +75,7 @@ const googleAuth = ()=>{
     // console.log(token);
     const user = result.user;
     const userToken = user._delegate.accessToken
+
     authToken(userToken)
 
   })
@@ -203,7 +204,7 @@ newUser.addEventListener('click', (e)=>{
 })
 
 
-btnGoogle.addEventListener('click', e =>{
+btnGoogle.addEventListener('click', (e) =>{
   e.preventDefault()
   googleAuth()
 })
@@ -228,15 +229,58 @@ btnLogin.addEventListener('click', e =>{
 
 //save token
 const authToken = (userToken) => {
-  const storageUser = localStorage.setItem('user', userToken)
-  // console.log(localStorage.getItem('user'));
 
-  const redirect  = `http://localhost:5000/?user=${localStorage.getItem('user')}`
+  if (userToken.length < 50) {
+    console.log(userToken);
+    const storageUser = localStorage.setItem('user', userToken)
   
-  if (localStorage.getItem('user')){
-    window.location.href = redirect
-    localStorage.removeItem('user')
+    const redirect  = `http://localhost:5000/?user=${localStorage.getItem('user')}`
+    
+    if (localStorage.getItem('user')){
+      window.location.href = redirect
+      localStorage.removeItem('user')
+    }
+  }else{
+    logGoogleUser(userToken)
   }
+
+
+    // console.log(localStorage.getItem('user'));
+    
+
+  }
+  
+  const logGoogleUser = async(userToken)=>{
+    const jwtToObj = JSON.parse(atob(userToken.split('.')[1]))
+
+    const getUserDb = await fetch(`http://18.118.50.78:8000/user/create/?email=${jwtToObj.email}`)
+    const response = await getUserDb.json()
+
+    if (response[0]) {
+      authToken(jwtToObj.email)
+    }else{
+      // console.log(jwtToObj);
+
+      const createGoogleUser = await fetch('http://18.118.50.78:8000/user/create/',{
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body:JSON.stringify({
+          "first_name" : jwtToObj.name,
+          "last_name" : ".",
+          "mobile" : 0,
+          "email" : jwtToObj.email,
+          "password_hash" : jwtToObj.user_id,
+        })
+      })
+      const response = await createGoogleUser.json()
+      if(response.email){
+        authToken(response.email)
+      }else{
+        console.log('creation failed');
+      }
+    }
 }
 const userLogIn = async (email, password)=>{
   try {

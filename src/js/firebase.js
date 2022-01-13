@@ -24,6 +24,7 @@ const googleAuth = ()=>{
     // console.log(token);
     const user = result.user;
     const userToken = user._delegate.accessToken
+
     authToken(userToken)
 
   })
