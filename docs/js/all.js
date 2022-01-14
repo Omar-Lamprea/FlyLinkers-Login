@@ -156,6 +156,9 @@ const photo = document.getElementById('new-user').newPhoto
 const newUser = document.getElementById('create-user')
 const showImage = document.getElementById('profile-image')
 
+const urlLogIn = 'http://localhost:5000'
+// const urlLogIn = 'https://dev.flylinkers.com'
+
 let photoB64;
 
 const showImg = ()=> {
@@ -234,7 +237,7 @@ const authToken = (userToken) => {
     console.log(userToken);
     const storageUser = localStorage.setItem('user', userToken)
   
-    const redirect  = `http://localhost:5000/?user=${localStorage.getItem('user')}`
+    const redirect  = `${urlLogIn}/?user=${localStorage.getItem('user')}`
     
     if (localStorage.getItem('user')){
       window.location.href = redirect
@@ -243,9 +246,6 @@ const authToken = (userToken) => {
   }else{
     logGoogleUser(userToken)
   }
-
-
-    // console.log(localStorage.getItem('user'));
     
 
   }
