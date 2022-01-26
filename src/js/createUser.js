@@ -1,7 +1,7 @@
 const createNewUser = async (data)=>{
   const [firstName, middleName, lastName, newTel, newTitle, newEmail, newPass, photoB64] = data
 
-  const getImg = await fetch ('http://18.118.50.78:8000/resources/img/', {
+  const getImg = await fetch ('https://api.flylinkers.com/resources/img/', {
     method : 'POST',
     headers : {
       'Content-Type': 'application/json'
@@ -13,7 +13,7 @@ const createNewUser = async (data)=>{
   const image = await getImg.json()
 
   try {
-    const response = await fetch('http://18.118.50.78:8000/user/create/',{
+    const response = await fetch('https://api.flylinkers.com/user/create/',{
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

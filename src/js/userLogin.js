@@ -1,6 +1,6 @@
 const userLogIn = async (email, password)=>{
   try {
-    const response = await fetch('http://18.118.50.78:8000/user/login/',{
+    const response = await fetch(`https://api.flylinkers.com/user/login/`,{
       method : 'POST',
       headers : {
         'Content-Type': 'application/json'
