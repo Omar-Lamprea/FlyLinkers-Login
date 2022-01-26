@@ -20,6 +20,8 @@ const showImage = document.getElementById('profile-image')
 // const urlLogIn = 'http://localhost:5000'
 const urlLogIn = 'https://boring-newton-9e8daa.netlify.app'
 
+const urlPI = 'https://api.flylinkers.com'
+
 let photoB64;
 
 const showImg = ()=> {
@@ -114,7 +116,7 @@ const authToken = (userToken) => {
   const logGoogleUser = async(userToken)=>{
     const jwtToObj = JSON.parse(atob(userToken.split('.')[1]))
 
-    const getUserDb = await fetch(`http://18.118.50.78:8000/user/create/?email=${jwtToObj.email}`)
+    const getUserDb = await fetch(`${urlPI}/user/create/?email=${jwtToObj.email}`)
     const response = await getUserDb.json()
 
     if (response[0]) {
@@ -122,7 +124,7 @@ const authToken = (userToken) => {
     }else{
       // console.log(jwtToObj);
 
-      const createGoogleUser = await fetch('http://18.118.50.78:8000/user/create/',{
+      const createGoogleUser = await fetch(`${urlPI}/user/create/`,{
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
