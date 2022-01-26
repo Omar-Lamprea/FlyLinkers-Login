@@ -157,7 +157,7 @@ const newUser = document.getElementById('create-user')
 const showImage = document.getElementById('profile-image')
 
 // const urlLogIn = 'http://localhost:5000'
-const urlLogIn = 'app.flylinkers.com'
+const urlLogIn = 'https://boring-newton-9e8daa.netlify.app'
 
 let photoB64;
 
