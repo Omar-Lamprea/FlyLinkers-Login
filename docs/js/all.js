@@ -159,8 +159,6 @@ const showImage = document.getElementById('profile-image')
 // const urlLogIn = 'http://localhost:5000'
 const urlLogIn = 'https://boring-newton-9e8daa.netlify.app'
 
-const urlPI = 'https://api.flylinkers.com'
-
 let photoB64;
 
 const showImg = ()=> {
@@ -255,7 +253,7 @@ const authToken = (userToken) => {
   const logGoogleUser = async(userToken)=>{
     const jwtToObj = JSON.parse(atob(userToken.split('.')[1]))
 
-    const getUserDb = await fetch(`${urlPI}/user/create/?email=${jwtToObj.email}`)
+    const getUserDb = await fetch(`https://api.flylinkers.com/user/create/?email=${jwtToObj.email}`)
     const response = await getUserDb.json()
 
     if (response[0]) {
@@ -263,7 +261,7 @@ const authToken = (userToken) => {
     }else{
       // console.log(jwtToObj);
 
-      const createGoogleUser = await fetch(`${urlPI}/user/create/`,{
+      const createGoogleUser = await fetch('https://api.flylinkers.com/user/create/',{
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -274,6 +272,7 @@ const authToken = (userToken) => {
           "mobile" : 0,
           "email" : jwtToObj.email,
           "password_hash" : jwtToObj.user_id,
+          "photo" : "/archivos/fotos/77d1c0f6-4b33-4b04-93fd-14f07061c2e2.jpg"
         })
       })
       const response = await createGoogleUser.json()
